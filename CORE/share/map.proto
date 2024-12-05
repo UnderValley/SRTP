@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+enum Attribution_Node {
+    NORMAL = 0;
+    CHARGE = 1;
+    START = 2;
+    END = 3;
+}
+
+enum Attribution_Route {
+    DOUBLE = 0;
+    SINGLE = 1;
+}
+
+message Route {
+    int32 node1_id = 1;
+    int32 node2_id = 2;
+    Attribution_Route attr = 3;
+    int32 entry = 4;
+    int32 exit = 5;
+    int32 id = 6;
+}
+
+message Node {
+    int32 id = 1;
+    float x = 2;
+    float y = 3;
+    repeated int32 entry_routes = 4;
+    repeated int32 exit_routes = 5;
+    Attribution_Node attr = 6;
+    bool focused = 7;
+}
+
+message MapAGV{
+    repeated Node nodes = 1;
+    repeated Route routes = 2;
+}
