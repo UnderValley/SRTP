@@ -53,6 +53,32 @@
      <string>addRouteMode</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>880</x>
+      <y>430</y>
+      <width>89</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>saveMap</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_2">
+    <property name="geometry">
+     <rect>
+      <x>1020</x>
+      <y>430</y>
+      <width>89</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>loadMap</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -109,9 +135,43 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>saveMap()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>915</x>
+     <y>487</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>730</x>
+     <y>461</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_2</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>loadMap()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1056</x>
+     <y>480</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1072</x>
+     <y>587</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>addNode()</slot>
   <slot>batchAddingNodes()</slot>
+  <slot>saveMap()</slot>
+  <slot>loadMap()</slot>
  </slots>
 </ui>

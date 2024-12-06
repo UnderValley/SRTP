@@ -40,6 +40,8 @@ private slots:
     void recordChoosedID(int id);
     void batchAddingNodes();
     void recBatchMap(MapAGV tmpMap);
+    void saveMap();
+    void loadMap();
 };
 
 #endif // MAINWINDOW_H
