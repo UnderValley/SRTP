@@ -5,6 +5,9 @@
 #include <QTimer>
 #include <qdebug.h>
 #include <QStyleFactory>
+#include <QFile>
+#include <QFileDialog>
+#include <fstream>
 
 namespace  {
     int curNodeID = 0;
@@ -128,6 +131,43 @@ void MainWindow::enterRouteMode()
     disconnect(ui->btn_addRouteControl, SIGNAL(clicked()), this, SLOT(enterRouteMode()));
     connect(ui->btn_addRouteControl, SIGNAL(clicked()), this, SLOT(exitRouteMode()));
     ui->btn_addRouteControl->setText("exit");
+}
+
+void MainWindow::saveMap()
+{
+    std::ofstream output("../MAP/map.bin", std::ios::binary);
+    if (!editableMap.SerializePartialToOstream(&output)) {
+        qDebug() << "save failed";
+        return;
+    }
+    output.close();
+}
+
+void MainWindow::loadMap()
+{
+    QString filename = QFileDialog::getOpenFileName(this, "打开文件", "", "二进制文件 (*.bin);;所有文件 (*)", 0, QFileDialog::DontUseNativeDialog);
+    if (filename.isEmpty()) {
+        qDebug() << "not select file";
+        return;
+    }
+    MapAGV t_map;
+    std::ifstream input(filename.toStdString(), std::ios::binary);
+    if (!t_map.ParseFromIstream(&input)) {
+        qDebug() << "open failed";
+        return;
+    }
+    input.close();
+    editableMap.Clear();
+    editableMap.CopyFrom(t_map);
+    graphicsView->load_map(editableMap);
+    //    auto key = QFileDialog::getOpenFileName(this,"打开文件","../");
+//    QFile file;
+//    file.setFileName(key);
+//    QTextStream in(&file);
+//    editableMap.Clear();
+//    editableMap.ParseFromString(in.readAll().toStdString());
+////    editableMap.ParseFromString(key.toStdString());
+//    graphicsView->load_map(editableMap);
 }
 
 void MainWindow::exitRouteMode()
