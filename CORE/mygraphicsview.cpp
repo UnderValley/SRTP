@@ -4,7 +4,7 @@
 namespace  {
     const double UPDATE_FREQUENCY = 60;
     const double UPDATE_PERIOD = 1.0 / UPDATE_FREQUENCY;
-    const int NODEWIDTH = 10;
+    const int NODEWIDTH = 50;
     int pressx = 0;
     int pressy = 0;
     struct MouseState {
@@ -65,7 +65,7 @@ void MyGraphicsView::draw_Map(QPainter &painter)
     for (int i = 0; i < _map.nodes_size(); i++) {
         painter.fillRect(_map.nodes(i).x(), _map.nodes(i).y(), NODEWIDTH, NODEWIDTH, QBrush(Qt::white));
         if (isFocus[i]) {
-            painter.setPen(QPen(QColor(153, 51, 255),2));
+            painter.setPen(QPen(QColor(153, 51, 255),2 / _scale_ratio));
             painter.drawRect(_map.nodes(i).x(), _map.nodes(i).y(), NODEWIDTH, NODEWIDTH);
         } else {
             painter.setPen(QPen(Qt::gray,1));
@@ -109,7 +109,8 @@ void MyGraphicsView::load_map(MapAGV &m)
 
 void MyGraphicsView::wheelEvent(QWheelEvent *event)
 {
-    _scale_ratio += event->angleDelta().y() / 1200.0;
+    _scale_ratio += event->angleDelta().y() / 12000.0;
+    if (!(_scale_ratio > 0)) _scale_ratio = 0.05;
 //    qDebug() << event->angleDelta();
 }
 

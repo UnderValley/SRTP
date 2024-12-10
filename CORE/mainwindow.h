@@ -7,6 +7,7 @@
 #include "map.pb.h"
 #include <QLineEdit>
 #include "mywidget.h"
+#include <QDomDocument>
 
 namespace Ui {
 class MainWindow;

@@ -145,21 +145,54 @@ void MainWindow::saveMap()
 
 void MainWindow::loadMap()
 {
-    QString filename = QFileDialog::getOpenFileName(this, "打开文件", "", "二进制文件 (*.bin);;所有文件 (*)", 0, QFileDialog::DontUseNativeDialog);
-    if (filename.isEmpty()) {
-        qDebug() << "not select file";
+    QString filename ="../MAP/mainmap.xml";// QFileDialog::getOpenFileName(this, "打开文件", "", "二进制文件 (*.bin);;所有文件 (*)", 0, QFileDialog::DontUseNativeDialog);
+//    QFile file("QT_XML.xml");
+    qDebug() << filename;
+    QFile file(filename);
+    if (!file.open(QFileDevice::ReadOnly)) {
+        qDebug() << "文件打开失败！";
         return;
     }
-    MapAGV t_map;
-    std::ifstream input(filename.toStdString(), std::ios::binary);
-    if (!t_map.ParseFromIstream(&input)) {
-        qDebug() << "open failed";
+    QDomDocument doc;
+    if (!doc.setContent(&file)) {
+       qDebug() <<  "操作的文件不是XML文件！";
+        file.close();
         return;
     }
-    input.close();
-    editableMap.Clear();
-    editableMap.CopyFrom(t_map);
+    QDomNodeList list = doc.elementsByTagName("node");
+    for (int i = 0; i < list.count(); i++) {
+        auto t_node = editableMap.add_nodes();
+        t_node->set_id(i);
+        t_node->set_x(list.at(i).toElement().attribute("x").toDouble() / 10);
+        t_node->set_y( -list.at(i).toElement().attribute("y").toDouble() / 10);
+        qDebug() << list.at(i).toElement().attribute("code") << list.at(i).toElement().attribute("x").toDouble();
+    }
+    list = doc.elementsByTagName("arc");
+    for (int i = 0; i < list.count(); i++) {
+        auto t_node = editableMap.add_routes();
+        t_node->set_id(i);
+        t_node->set_node1_id(list.at(i).toElement().attribute("snode").toDouble());
+        t_node->set_node2_id(list.at(i).toElement().attribute("enode").toDouble());
+        t_node->set_entry(list.at(i).toElement().attribute("snode").toDouble());
+        t_node->set_exit(list.at(i).toElement().attribute("enode").toDouble());
+//        qDebug() << list.at(i).toElement().attribute("code") << list.at(i).toElement().attribute("x").toDouble();
+    }
     graphicsView->load_map(editableMap);
+
+    //    if (filename.isEmpty()) {
+//        qDebug() << "not select file";
+//        return;
+//    }
+//    MapAGV t_map;
+//    std::ifstream input(filename.toStdString(), std::ios::binary);
+//    if (!t_map.ParseFromIstream(&input)) {
+//        qDebug() << "open failed";
+//        return;
+//    }
+//    input.close();
+//    editableMap.Clear();
+//    editableMap.CopyFrom(t_map);
+//    graphicsView->load_map(editableMap);
     //    auto key = QFileDialog::getOpenFileName(this,"打开文件","../");
 //    QFile file;
 //    file.setFileName(key);

@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Map>
+<mapinfo origin_x="137.44" origin_y="740.86" unit="MM" version="10"> </mapinfo>
+<nodes node_count="126">
+<node code="0" tagid="0" type="LANE" x="0.0"  y="0.0"> </node>
+<node code="1" tagid="1" type="LANE" x="0.0"  y="57000.0"> </node>
+<node code="2" tagid="2" type="LANE" x="-3500.0"  y="57000.0"> </node>
+<node code="3" tagid="3" type="LANE" x="-3500.0"  y="53500.0"> </node>
+<node code="4" tagid="4" type="LANE" x="-3500.0"  y="48500.0"> </node>
+<node code="5" tagid="5" type="LANE" x="-3500.0"  y="43500.0"> </node>
+<node code="6" tagid="6" type="LANE" x="-3500.0"  y="38500.0"> </node>
+<node code="7" tagid="7" type="LANE" x="-3500.0"  y="33500.0"> </node>
+<node code="8" tagid="8" type="LANE" x="-3500.0"  y="28500.0"> </node>
+<node code="9" tagid="9" type="LANE" x="-3500.0"  y="23500.0"> </node>
+<node code="10" tagid="10" type="LANE" x="-3500.0"  y="18500.0"> </node>
+<node code="11" tagid="11" type="LANE" x="-3500.0"  y="13500.0"> </node>
+<node code="12" tagid="12" type="LANE" x="-3500.0"  y="8500.0"> </node>
+<node code="13" tagid="13" type="LANE" x="-3500.0"  y="0.0"> </node>
+<node code="14" tagid="14" type="LANE" x="-7000.0"  y="57000.0"> </node>
+<node code="15" tagid="15" type="LANE" x="-7000.0"  y="53500.0"> </node>
+<node code="16" tagid="16" type="LANE" x="-7000.0"  y="48500.0"> </node>
+<node code="17" tagid="17" type="LANE" x="-7000.0"  y="43500.0"> </node>
+<node code="18" tagid="18" type="LANE" x="-7000.0"  y="38500.0"> </node>
+<node code="19" tagid="19" type="LANE" x="-7000.0"  y="33500.0"> </node>
+<node code="20" tagid="20" type="LANE" x="-7000.0"  y="28500.0"> </node>
+<node code="21" tagid="21" type="LANE" x="-7000.0"  y="23500.0"> </node>
+<node code="22" tagid="22" type="LANE" x="-7000.0"  y="18500.0"> </node>
+<node code="23" tagid="23" type="LANE" x="-7000.0"  y="13500.0"> </node>
+<node code="24" tagid="24" type="LANE" x="-7000.0"  y="8500.0"> </node>
+<node code="25" tagid="25" type="LANE" x="-10500.0"  y="57000.0"> </node>
+<node code="26" tagid="26" type="LANE" x="-10500.0"  y="53500.0"> </node>
+<node code="27" tagid="27" type="LANE" x="-10500.0"  y="48500.0"> </node>
+<node code="28" tagid="28" type="LANE" x="-10500.0"  y="43500.0"> </node>
+<node code="29" tagid="29" type="LANE" x="-10500.0"  y="38500.0"> </node>
+<node code="30" tagid="30" type="LANE" x="-10500.0"  y="33500.0"> </node>
+<node code="31" tagid="31" type="LANE" x="-10500.0"  y="28500.0"> </node>
+<node code="32" tagid="32" type="LANE" x="-10500.0"  y="23500.0"> </node>
+<node code="33" tagid="33" type="LANE" x="-10500.0"  y="18500.0"> </node>
+<node code="34" tagid="34" type="LANE" x="-10500.0"  y="13500.0"> </node>
+<node code="35" tagid="35" type="LANE" x="-10500.0"  y="8500.0"> </node>
+<node code="36" tagid="36" type="LANE" x="-13500.0"  y="57000.0"> </node>
+<node code="37" tagid="37" type="LANE" x="-13500.0"  y="53500.0"> </node>
+<node code="38" tagid="38" type="LANE" x="-13500.0"  y="48500.0"> </node>
+<node code="39" tagid="39" type="LANE" x="-13500.0"  y="43500.0"> </node>
+<node code="40" tagid="40" type="LANE" x="-13500.0"  y="38500.0"> </node>
+<node code="41" tagid="41" type="LANE" x="-13500.0"  y="33500.0"> </node>
+<node code="42" tagid="42" type="LANE" x="-13500.0"  y="28500.0"> </node>
+<node code="43" tagid="43" type="LANE" x="-13500.0"  y="23500.0"> </node>
+<node code="44" tagid="44" type="LANE" x="-13500.0"  y="18500.0"> </node>
+<node code="45" tagid="45" type="LANE" x="-13500.0"  y="13500.0"> </node>
+<node code="46" tagid="46" type="LANE" x="-13500.0"  y="8500.0"> </node>
+<node code="47" tagid="47" type="LANE" x="9999999999999999999999.0"  y="999999999999999.0" ></node>
+<node code="48" tagid="48" type="LANE" x="-17000.0"  y="53500.0"> </node>
+<node code="49" tagid="49" type="LANE" x="-17000.0"  y="48500.0"> </node>
+<node code="50" tagid="50" type="LANE" x="-17000.0"  y="43500.0"> </node>
+<node code="51" tagid="51" type="LANE" x="-17000.0"  y="38500.0"> </node>
+<node code="52" tagid="52" type="LANE" x="-17000.0"  y="33500.0"> </node>
+<node code="53" tagid="53" type="LANE" x="-17000.0"  y="28500.0"> </node>
+<node code="54" tagid="54" type="LANE" x="-17000.0"  y="23500.0"> </node>
+<node code="55" tagid="55" type="LANE" x="-17000.0"  y="18500.0"> </node>
+<node code="56" tagid="56" type="LANE" x="-17000.0"  y="13500.0"> </node>
+<node code="57" tagid="57" type="LANE" x="-17000.0"  y="8500.0"> </node>
+<node code="58" tagid="58" type="LANE" x="-17000.0"  y="57000.0"> </node>
+<node code="59" tagid="59" type="LANE" x="-20500.0"  y="57000.0"> </node>
+<node code="60" tagid="60" type="LANE" x="-27000.0"  y="57000.0"> </node>
+<node code="61" tagid="61" type="LANE" x="-23500.0"  y="57000.0"> </node>
+<node code="62" tagid="62" type="LANE" x="-30500.0"  y="57000.0"> </node>
+<node code="63" tagid="63" type="LANE" x="-20500.0"  y="53500.0"> </node>
+<node code="64" tagid="64" type="LANE" x="-20500.0"  y="48500.0"> </node>
+<node code="65" tagid="65" type="LANE" x="-20500.0"  y="43500.0"> </node>
+<node code="66" tagid="66" type="LANE" x="-20500.0"  y="38500.0"> </node>
+<node code="67" tagid="67" type="LANE" x="-20500.0"  y="33500.0"> </node>
+<node code="68" tagid="68" type="LANE" x="-20500.0"  y="28500.0"> </node>
+<node code="69" tagid="69" type="LANE" x="-20500.0"  y="23500.0"> </node>
+<node code="70" tagid="70" type="LANE" x="-20500.0"  y="18500.0"> </node>
+<node code="71" tagid="71" type="LANE" x="-20500.0"  y="13500.0"> </node>
+<node code="72" tagid="72" type="LANE" x="-20500.0"  y="8500.0"> </node>
+<node code="73" tagid="73" type="LANE" x="-23500.0"  y="53500.0"> </node>
+<node code="74" tagid="74" type="LANE" x="-23500.0"  y="48500.0"> </node>
+<node code="75" tagid="75" type="LANE" x="-23500.0"  y="43500.0"> </node>
+<node code="76" tagid="76" type="LANE" x="-23500.0"  y="38500.0"> </node>
+<node code="77" tagid="77" type="LANE" x="-23500.0"  y="33500.0"> </node>
+<node code="78" tagid="78" type="LANE" x="-23500.0"  y="28500.0"> </node>
+<node code="79" tagid="79" type="LANE" x="-23500.0"  y="23500.0"> </node>
+<node code="80" tagid="80" type="LANE" x="-23500.0"  y="18500.0"> </node>
+<node code="81" tagid="81" type="LANE" x="-23500.0"  y="13500.0"> </node>
+<node code="82" tagid="82" type="LANE" x="-23500.0"  y="8500.0"> </node>
+<node code="83" tagid="83" type="LANE" x="-27000.0"  y="53500.0"> </node>
+<node code="84" tagid="84" type="LANE" x="-27000.0"  y="48500.0"> </node>
+<node code="85" tagid="85" type="LANE" x="-27000.0"  y="43500.0"> </node>
+<node code="86" tagid="86" type="LANE" x="-27000.0"  y="38500.0"> </node>
+<node code="87" tagid="87" type="LANE" x="-27000.0"  y="33500.0"> </node>
+<node code="88" tagid="88" type="LANE" x="-27000.0"  y="28500.0"> </node>
+<node code="89" tagid="89" type="LANE" x="-27000.0"  y="23500.0"> </node>
+<node code="90" tagid="90" type="LANE" x="-27000.0"  y="18500.0"> </node>
+<node code="91" tagid="91" type="LANE" x="-27000.0"  y="13500.0"> </node>
+<node code="92" tagid="92" type="LANE" x="-27000.0"  y="8500.0"> </node>
+<node code="93" tagid="93" type="LANE" x="-30500.0"  y="53500.0"> </node>
+<node code="94" tagid="94" type="LANE" x="-30500.0"  y="48500.0"> </node>
+<node code="95" tagid="95" type="LANE" x="-30500.0"  y="43500.0"> </node>
+<node code="96" tagid="96" type="LANE" x="-30500.0"  y="38500.0"> </node>
+<node code="97" tagid="97" type="LANE" x="-30500.0"  y="33500.0"> </node>
+<node code="98" tagid="98" type="LANE" x="-30500.0"  y="28500.0"> </node>
+<node code="99" tagid="99" type="LANE" x="-30500.0"  y="23500.0"> </node>
+<node code="100" tagid="100" type="LANE" x="-30500.0"  y="18500.0"> </node>
+<node code="101" tagid="101" type="LANE" x="-30500.0"  y="13500.0"> </node>
+<node code="102" tagid="102" type="LANE" x="-30500.0"  y="8500.0"> </node>
+<node code="103" tagid="103" type="LANE" x="-30500.0"  y="2700.0"> </node>
+<node code="104" tagid="104" type="LANE" x="-27000.0"  y="2700.0"> </node>
+<node code="105" tagid="105" type="LANE" x="-23500.0"  y="2700.0"> </node>
+<node code="106" tagid="106" type="LANE" x="-20500.0"  y="2700.0"> </node>
+<node code="107" tagid="107" type="LANE" x="-17000.0"  y="2700.0"> </node>
+<node code="108" tagid="108" type="LANE" x="-13500.0"  y="2700.0"> </node>
+<node code="109" tagid="109" type="LANE" x="-10500.0"  y="2700.0"> </node>
+<node code="110" tagid="110" type="LANE" x="-7000.0"  y="2700.0"> </node>
+<node code="111" tagid="111" type="LANE" x="-3500.0"  y="2700.0"> </node>
+<node code="112" tagid="112" type="LANE" x="-7000.0"  y="0.0"> </node>
+<node code="113" tagid="113" type="LANE" x="-10500.0"  y="0.0"> </node>
+<node code="114" tagid="114" type="LANE" x="-13500.0"  y="0.0"> </node>
+<node code="115" tagid="115" type="LANE" x="-17000.0"  y="0.0"> </node>
+<node code="116" tagid="116" type="LANE" x="-20500.0"  y="0.0"> </node>
+<node code="117" tagid="117" type="LANE" x="-23500.0"  y="0.0"> </node>
+<node code="118" tagid="118" type="LANE" x="-27000.0"  y="0.0"> </node>
+<node code="119" tagid="119" type="LANE" x="-30500.0"  y="0.0"> </node>
+<node code="120" tagid="120" type="LANE" x="-39500.0"  y="2700.0"> </node>
+<node code="121" tagid="121" type="LANE" x="-40900.0"  y="0.0"> </node>
+<node code="122" tagid="122" type="CHARGE" x="-37800.0"  y="4800.0"> </node>
+<node code="123" tagid="123" type="CHARGE" x="-37800.0"  y="5900.0"> </node>
+<node code="124" tagid="124" type="CHARGE" x="-37800.0"  y="7000.0"> </node>
+<node code="125" tagid="125" type="CHARGE" x="-37800.0"  y="8100.0"> </node>
+</nodes>
+<arcs arc_count="128">
+<arc code="3_4" enode="4" snode="3"> </arc>
+<arc code="4_5" enode="5" snode="4"> </arc>
+<arc code="5_6" enode="6" snode="5"> </arc>
+<arc code="6_7" enode="7" snode="6"> </arc>
+<arc code="7_8" enode="8" snode="7"> </arc>
+<arc code="8_9" enode="9" snode="8"> </arc>
+<arc code="9_10" enode="10" snode="9"> </arc>
+<arc code="10_11" enode="11" snode="10"> </arc>
+<arc code="11_12" enode="12" snode="11"> </arc>
+<arc code="15_16" enode="16" snode="15"> </arc>
+<arc code="16_17" enode="17" snode="16"> </arc>
+<arc code="17_18" enode="18" snode="17"> </arc>
+<arc code="18_19" enode="19" snode="18"> </arc>
+<arc code="19_20" enode="20" snode="19"> </arc>
+<arc code="20_21" enode="21" snode="20"> </arc>
+<arc code="21_22" enode="22" snode="21"> </arc>
+<arc code="22_23" enode="23" snode="22"> </arc>
+<arc code="23_24" enode="24" snode="23"> </arc>
+<arc code="26_27" enode="27" snode="26"> </arc>
+<arc code="27_28" enode="28" snode="27"> </arc>
+<arc code="28_29" enode="29" snode="28"> </arc>
+<arc code="29_30" enode="30" snode="29"> </arc>
+<arc code="30_31" enode="31" snode="30"> </arc>
+<arc code="31_32" enode="32" snode="31"> </arc>
+<arc code="32_33" enode="33" snode="32"> </arc>
+<arc code="33_34" enode="34" snode="33"> </arc>
+<arc code="34_35" enode="35" snode="34"> </arc>
+<arc code="37_38" enode="38" snode="37"> </arc>
+<arc code="38_39" enode="39" snode="38"> </arc>
+<arc code="39_40" enode="40" snode="39"> </arc>
+<arc code="40_41" enode="41" snode="40"> </arc>
+<arc code="41_42" enode="42" snode="41"> </arc>
+<arc code="42_43" enode="43" snode="42"> </arc>
+<arc code="43_44" enode="44" snode="43"> </arc>
+<arc code="44_45" enode="45" snode="44"> </arc>
+<arc code="45_46" enode="46" snode="45"> </arc>
+<arc code="48_49" enode="49" snode="48"> </arc>
+<arc code="49_50" enode="50" snode="49"> </arc>
+<arc code="50_51" enode="51" snode="50"> </arc>
+<arc code="51_52" enode="52" snode="51"> </arc>
+<arc code="52_53" enode="53" snode="52"> </arc>
+<arc code="53_54" enode="54" snode="53"> </arc>
+<arc code="54_55" enode="55" snode="54"> </arc>
+<arc code="55_56" enode="56" snode="55"> </arc>
+<arc code="56_57" enode="57" snode="56"> </arc>
+<arc code="63_64" enode="64" snode="63"> </arc>
+<arc code="64_65" enode="65" snode="64"> </arc>
+<arc code="65_66" enode="66" snode="65"> </arc>
+<arc code="66_67" enode="67" snode="66"> </arc>
+<arc code="67_68" enode="68" snode="67"> </arc>
+<arc code="68_69" enode="69" snode="68"> </arc>
+<arc code="69_70" enode="70" snode="69"> </arc>
+<arc code="70_71" enode="71" snode="70"> </arc>
+<arc code="71_72" enode="72" snode="71"> </arc>
+<arc code="73_74" enode="74" snode="73"> </arc>
+<arc code="74_75" enode="75" snode="74"> </arc>
+<arc code="75_76" enode="76" snode="75"> </arc>
+<arc code="76_77" enode="77" snode="76"> </arc>
+<arc code="77_78" enode="78" snode="77"> </arc>
+<arc code="78_79" enode="79" snode="78"> </arc>
+<arc code="79_80" enode="80" snode="79"> </arc>
+<arc code="80_81" enode="81" snode="80"> </arc>
+<arc code="81_82" enode="82" snode="81"> </arc>
+<arc code="83_84" enode="84" snode="83"> </arc>
+<arc code="84_85" enode="85" snode="84"> </arc>
+<arc code="85_86" enode="86" snode="85"> </arc>
+<arc code="86_87" enode="87" snode="86"> </arc>
+<arc code="87_88" enode="88" snode="87"> </arc>
+<arc code="88_89" enode="89" snode="88"> </arc>
+<arc code="89_90" enode="90" snode="89"> </arc>
+<arc code="90_91" enode="91" snode="90"> </arc>
+<arc code="91_92" enode="92" snode="91"> </arc>
+<arc code="93_94" enode="94" snode="93"> </arc>
+<arc code="94_95" enode="95" snode="94"> </arc>
+<arc code="95_96" enode="96" snode="95"> </arc>
+<arc code="96_97" enode="97" snode="96"> </arc>
+<arc code="97_98" enode="98" snode="97"> </arc>
+<arc code="98_99" enode="99" snode="98"> </arc>
+<arc code="99_100" enode="100" snode="99"> </arc>
+<arc code="100_101" enode="101" snode="100"> </arc>
+<arc code="101_102" enode="102" snode="101"> </arc>
+<arc code="0_1" enode="1" snode="0"> </arc>
+<arc code="1_2" enode="2" snode="1"> </arc>
+<arc code="2_14" enode="14" snode="2"> </arc>
+<arc code="14_25" enode="25" snode="14"> </arc>
+<arc code="25_36" enode="36" snode="25"> </arc>
+<arc code="36_58" enode="58" snode="36"> </arc>
+<arc code="58_59" enode="59" snode="58"> </arc>
+<arc code="59_61" enode="61" snode="59"> </arc>
+<arc code="61_60" enode="60" snode="61"> </arc>
+<arc code="60_62" enode="62" snode="60"> </arc>
+<arc code="62_93" enode="93" snode="62"> </arc>
+<arc code="60_83" enode="83" snode="60"> </arc>
+<arc code="61_73" enode="73" snode="61"> </arc>
+<arc code="59_63" enode="63" snode="59"> </arc>
+<arc code="58_48" enode="48" snode="58"> </arc>
+<arc code="36_37" enode="37" snode="36"> </arc>
+<arc code="25_26" enode="26" snode="25"> </arc>
+<arc code="14_15" enode="15" snode="14"> </arc>
+<arc code="2_3" enode="3" snode="2"> </arc>
+<arc code="12_111" enode="111" snode="12"> </arc>
+<arc code="24_110" enode="110" snode="24"> </arc>
+<arc code="35_109" enode="109" snode="35"> </arc>
+<arc code="46_108" enode="108" snode="46"> </arc>
+<arc code="57_107" enode="107" snode="57"> </arc>
+<arc code="72_106" enode="106" snode="72"> </arc>
+<arc code="82_105" enode="105" snode="82"> </arc>
+<arc code="92_104" enode="104" snode="92"> </arc>
+<arc code="102_103" enode="103" snode="102"> </arc>
+<arc code="111_110" enode="110" snode="111"> </arc>
+<arc code="110_109" enode="109" snode="110"> </arc>
+<arc code="109_108" enode="108" snode="109"> </arc>
+<arc code="108_107" enode="107" snode="108"> </arc>
+<arc code="107_106" enode="106" snode="107"> </arc>
+<arc code="106_105" enode="105" snode="106"> </arc>
+<arc code="105_104" enode="104" snode="105"> </arc>
+<arc code="104_103" enode="103" snode="104"> </arc>
+<arc code="103_120" enode="120" snode="103"> </arc>
+<arc code="121_119" enode="119" snode="121"> </arc>
+<arc code="119_118" enode="118" snode="119"> </arc>
+<arc code="118_117" enode="117" snode="118"> </arc>
+<arc code="117_116" enode="116" snode="117"> </arc>
+<arc code="116_115" enode="115" snode="116"> </arc>
+<arc code="115_114" enode="114" snode="115"> </arc>
+<arc code="114_113" enode="113" snode="114"> </arc>
+<arc code="113_112" enode="112" snode="113"> </arc>
+<arc code="112_13" enode="13" snode="112"> </arc>
+<arc code="13_0" enode="0" snode="13"> </arc>
+</arcs>
+</Map>
