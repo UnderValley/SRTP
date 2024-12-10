@@ -135,7 +135,7 @@ void MainWindow::enterRouteMode()
 
 void MainWindow::saveMap()
 {
-    std::ofstream output("../MAP/map.bin", std::ios::binary);
+    std::ofstream output("../../MAP/map.bin", std::ios::binary);
     if (!editableMap.SerializePartialToOstream(&output)) {
         qDebug() << "save failed";
         return;
@@ -145,7 +145,7 @@ void MainWindow::saveMap()
 
 void MainWindow::loadMap()
 {
-    QString filename ="../MAP/mainmap.xml";// QFileDialog::getOpenFileName(this, "打开文件", "", "二进制文件 (*.bin);;所有文件 (*)", 0, QFileDialog::DontUseNativeDialog);
+    QString filename ="../../MAP/mainmap.xml";// QFileDialog::getOpenFileName(this, "打开文件", "", "二进制文件 (*.bin);;所有文件 (*)", 0, QFileDialog::DontUseNativeDialog);
 //    QFile file("QT_XML.xml");
     qDebug() << filename;
     QFile file(filename);
