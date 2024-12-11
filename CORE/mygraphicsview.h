@@ -9,6 +9,38 @@
 #include "map.pb.h"
 #include <QMutex>
 
+class AGVCar
+{
+public:
+    AGVCar();
+    void load_path(std::vector<int> &path);
+    void headfor_next_node();
+    void change_vel(double v) {_vel = v;}
+    void load_map(MapAGV &m);
+    void draw_car(QPainter& painter);
+    bool is_having_path() {return _has_path;}
+    enum STATE{
+        STOPPING = 0,
+        RIGHT = 1,
+        UP = 2,
+        LEFT = 3,
+        DOWN = 4,
+        REACHED = 5
+    };
+
+private:
+    std::vector<int> _path;
+    int _cur_node_index_in_path;
+    bool _has_path = false;
+    double _vel = 10 / 73.0;
+    double _battery;
+    double _targetX;
+    double _targetY;
+    double _curX;
+    double _curY;
+    STATE _state;
+    MapAGV _map;
+};
 
 class MyGraphicsView : public QLabel
 {
@@ -21,6 +53,7 @@ public:
     void set_scale(double ratio);
     void set_offset(double x, double y);
     int clickedOnWhich(QPoint pos);
+    AGVCar car;
 
 signals:
     void mouseMoveEvent(QPoint point);//发送鼠标事件

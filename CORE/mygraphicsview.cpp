@@ -17,6 +17,97 @@ namespace  {
     int m_state = 0;
 }
 
+AGVCar::AGVCar()
+{
+    _cur_node_index_in_path = 0;
+}
+
+void AGVCar::load_map(MapAGV &m)
+{
+    _map.CopyFrom(m);
+}
+
+void AGVCar::draw_car(QPainter &painter)
+{
+    painter.fillRect(_curX, _curY, NODEWIDTH, NODEWIDTH, QBrush(Qt::red));
+}
+
+void AGVCar::load_path(std::vector<int> &path)
+{
+    _path = path;
+    _cur_node_index_in_path = 0;
+    _curX = _map.nodes(_path[_cur_node_index_in_path]).x();
+    _curY = _map.nodes(_path[_cur_node_index_in_path]).y();
+    _state = STATE::REACHED;
+    _has_path = true;
+    for (int i = 0; i < _path.size(); i++) {
+        qDebug() << _path[i];
+    }
+}
+
+void AGVCar::headfor_next_node()
+{
+    qDebug() << _cur_node_index_in_path << _path.size() - 1 << _path[_cur_node_index_in_path + 1] << _state;
+    if (_state == STOPPING) {
+//        _has_path = false;
+        return;
+    } else if (_state == REACHED) {
+        if (_map.nodes(_path[_cur_node_index_in_path + 1]).x() - _curX < 1e-7) {
+            _state = STATE::LEFT;
+        } else if (-_map.nodes(_path[_cur_node_index_in_path + 1]).x() + _curX < 1e-7) {
+            _state = STATE::RIGHT;
+        } else if (_map.nodes(_path[_cur_node_index_in_path + 1]).y() - _curY < 1e-7) {
+            _state = STATE::UP;
+        } else if (-_map.nodes(_path[_cur_node_index_in_path + 1]).y() + _curY < 1e-7) {
+            _state = STATE::DOWN;
+        }
+    } else if (_state == LEFT) {
+        _curX -= _vel;
+        if (_curX <= _map.nodes(_path[_cur_node_index_in_path + 1]).x()) {
+            _curX = _map.nodes(_path[_cur_node_index_in_path + 1]).x();
+            _cur_node_index_in_path++;
+            if (_cur_node_index_in_path == _path.size() - 1) {
+                _state = STOPPING;
+            }else {
+                _state = REACHED;
+            }
+        }
+    } else if (_state == RIGHT) {
+        _curX += _vel;
+        if (_curX >= _map.nodes(_path[_cur_node_index_in_path + 1]).x()) {
+            _curX = _map.nodes(_path[_cur_node_index_in_path + 1]).x();
+            _cur_node_index_in_path++;
+            if (_cur_node_index_in_path == _path.size() - 1) {
+                _state = STOPPING;
+            }else {
+                _state = REACHED;
+            }
+        }
+    } else if (_state == UP) {
+        _curY -= _vel;
+        if (_curY <= _map.nodes(_path[_cur_node_index_in_path + 1]).y()) {
+            _curY = _map.nodes(_path[_cur_node_index_in_path + 1]).y();
+            _cur_node_index_in_path++;
+            if (_cur_node_index_in_path == _path.size() - 1) {
+                _state = STOPPING;
+            }else {
+                _state = REACHED;
+            }
+        }
+    } else if (_state == DOWN) {
+        _curY += _vel;
+        if (_curY <= _map.nodes(_path[_cur_node_index_in_path + 1]).y()) {
+            _curY = _map.nodes(_path[_cur_node_index_in_path + 1]).y();
+            _cur_node_index_in_path++;
+            if (_cur_node_index_in_path == _path.size() - 1) {
+                _state = STOPPING;
+            }else {
+                _state = REACHED;
+            }
+        }
+    }
+}
+
 MyGraphicsView::MyGraphicsView(QWidget *parent) : QLabel(parent)
 {
     setMouseTracking(true);
@@ -30,7 +121,6 @@ MyGraphicsView::MyGraphicsView(QWidget *parent) : QLabel(parent)
     });
     timer->setInterval(UPDATE_PERIOD);
     timer->start();
-
 }
 
 void MyGraphicsView::draw_Map(QPainter &painter)
@@ -71,7 +161,15 @@ void MyGraphicsView::draw_Map(QPainter &painter)
             painter.setPen(QPen(Qt::gray,1));
             painter.drawRect(_map.nodes(i).x(), _map.nodes(i).y(), NODEWIDTH, NODEWIDTH);
         }
+        painter.setPen(QPen(Qt::gray,1));
+        painter.drawText(_map.nodes(i).x() + NODEWIDTH / 3, _map.nodes(i).y() + NODEWIDTH / 2, QString("%1").arg(i));
     }
+    if (car.is_having_path()) {
+        car.draw_car(painter);
+        car.headfor_next_node();
+    }
+
+
 //    painter.drawLine(0, 0, 200, 200);
 //    for (int i = 0; i < 100; i++) {
 //        for (int j = 0; j < 100; j++) {
@@ -100,6 +198,7 @@ void MyGraphicsView::load_map(MapAGV &m)
 {
     _map_mute.lock();
     _map.CopyFrom(m);
+    car.load_map(m);
     isFocus.assign(_map.nodes_size(), false);
 //    for (int i = 0; i < _map.nodes_size(); i++) {
 //        isFocus.push_back(false);

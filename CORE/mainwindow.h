@@ -35,6 +35,7 @@ private:
     bool isInMap(double x, double y);
 
 private slots:
+    void startSim();
     void addNode();
     void enterRouteMode();
     void exitRouteMode();

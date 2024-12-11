@@ -31,7 +31,7 @@
     <property name="geometry">
      <rect>
       <x>880</x>
-      <y>370</y>
+      <y>210</y>
       <width>131</width>
       <height>25</height>
      </rect>
@@ -44,7 +44,7 @@
     <property name="geometry">
      <rect>
       <x>880</x>
-      <y>170</y>
+      <y>160</y>
       <width>121</width>
       <height>25</height>
      </rect>
@@ -57,7 +57,7 @@
     <property name="geometry">
      <rect>
       <x>880</x>
-      <y>430</y>
+      <y>270</y>
       <width>89</width>
       <height>25</height>
      </rect>
@@ -70,13 +70,26 @@
     <property name="geometry">
      <rect>
       <x>1020</x>
-      <y>430</y>
+      <y>270</y>
       <width>89</width>
       <height>25</height>
      </rect>
     </property>
     <property name="text">
      <string>loadMap</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_startSim">
+    <property name="geometry">
+     <rect>
+      <x>880</x>
+      <y>340</y>
+      <width>121</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>startSimulation</string>
     </property>
    </widget>
   </widget>
@@ -127,7 +140,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>986</x>
-     <y>422</y>
+     <y>273</y>
     </hint>
     <hint type="destinationlabel">
      <x>1083</x>
@@ -143,7 +156,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>915</x>
-     <y>487</y>
+     <y>333</y>
     </hint>
     <hint type="destinationlabel">
      <x>730</x>
@@ -159,11 +172,27 @@
    <hints>
     <hint type="sourcelabel">
      <x>1056</x>
-     <y>480</y>
+     <y>333</y>
     </hint>
     <hint type="destinationlabel">
      <x>1072</x>
      <y>587</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_startSim</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>startSim()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>897</x>
+     <y>392</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>793</x>
+     <y>381</y>
     </hint>
    </hints>
   </connection>
@@ -173,5 +202,6 @@
   <slot>batchAddingNodes()</slot>
   <slot>saveMap()</slot>
   <slot>loadMap()</slot>
+  <slot>startSim()</slot>
  </slots>
 </ui>

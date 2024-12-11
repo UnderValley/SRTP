@@ -41,6 +41,16 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::startSim()
+{
+    std::vector<int> pathList;
+    pathList.push_back(0);
+    pathList.push_back(13);
+    pathList.push_back(112);
+    pathList.push_back(113);
+    graphicsView->car.load_path(pathList);
+}
+
 void MainWindow::addNode()
 {
     if (!isInMap(testFrame1->text().toInt(), testFrame2->text().toInt())) {
@@ -147,7 +157,7 @@ void MainWindow::loadMap()
 {
     QString filename ="../MAP/mainmap.xml";// QFileDialog::getOpenFileName(this, "打开文件", "", "二进制文件 (*.bin);;所有文件 (*)", 0, QFileDialog::DontUseNativeDialog);
 //    QFile file("QT_XML.xml");
-    qDebug() << filename;
+//    qDebug() << filename;
     QFile file(filename);
     if (!file.open(QFileDevice::ReadOnly)) {
         qDebug() << "文件打开失败！";
@@ -165,7 +175,7 @@ void MainWindow::loadMap()
         t_node->set_id(i);
         t_node->set_x(list.at(i).toElement().attribute("x").toDouble() / 10);
         t_node->set_y( -list.at(i).toElement().attribute("y").toDouble() / 10);
-        qDebug() << list.at(i).toElement().attribute("code") << list.at(i).toElement().attribute("x").toDouble();
+//        qDebug() << list.at(i).toElement().attribute("code") << list.at(i).toElement().attribute("x").toDouble();
     }
     list = doc.elementsByTagName("arc");
     for (int i = 0; i < list.count(); i++) {
