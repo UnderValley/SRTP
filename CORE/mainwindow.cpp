@@ -21,16 +21,17 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->btn_simControl->setEnabled(false);
 //    w.initial1();
     testFrame1 = new QLineEdit(this);
     testFrame2 = new QLineEdit(this);
-    testFrame1->setGeometry(870, 100, 100, 20);
+    testFrame1->setGeometry(920, 100, 100, 20);
     testFrame1->setText("200");
-    testFrame2->setGeometry(1000, 100, 100, 20);
+    testFrame2->setGeometry(1050, 100, 100, 20);
     testFrame2->setText("200");
 
     graphicsView = new MyGraphicsView(this);
-    graphicsView->setGeometry(80, 50, 700, 500);
+    graphicsView->setGeometry(80, 50, 800, 600);
     connect(&w, SIGNAL(sendMap(MapAGV)), this, SLOT(recBatchMap(MapAGV)));
     connect(ui->btn_addRouteControl, SIGNAL(clicked()), this, SLOT(enterRouteMode()));
 
@@ -44,11 +45,37 @@ MainWindow::~MainWindow()
 void MainWindow::startSim()
 {
     std::vector<int> pathList;
-    pathList.push_back(0);
-    pathList.push_back(13);
-    pathList.push_back(112);
-    pathList.push_back(113);
+    QString filename ="../MAP/path.txt";
+    QFile file(filename);
+    if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        while (!file.atEnd()) {
+            QByteArray line = file.readLine();
+//            QString str(line);
+            pathList.push_back(line.toInt());
+        }
+
+        file.close();
+    }
     graphicsView->car.load_path(pathList);
+    graphicsView->start_sim();
+    ui->btn_simControl->setEnabled(true);
+    connect(ui->btn_simControl, SIGNAL(clicked()), this, SLOT(pauseSim()));
+}
+
+void MainWindow::pauseSim()
+{
+    disconnect(ui->btn_simControl, SIGNAL(clicked()), this, SLOT(pauseSim()));
+    connect(ui->btn_simControl, SIGNAL(clicked()), this, SLOT(restartSim()));
+    ui->btn_simControl->setText("RESTART");
+    graphicsView->pause_sim();
+}
+
+void MainWindow::restartSim()
+{
+    connect(ui->btn_simControl, SIGNAL(clicked()), this, SLOT(pauseSim()));
+    disconnect(ui->btn_simControl, SIGNAL(clicked()), this, SLOT(restartSim()));
+    ui->btn_simControl->setText("PAUSE");
+    graphicsView->start_sim();
 }
 
 void MainWindow::addNode()

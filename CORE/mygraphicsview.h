@@ -17,7 +17,7 @@ public:
     void headfor_next_node();
     void change_vel(double v) {_vel = v;}
     void load_map(MapAGV &m);
-    void draw_car(QPainter& painter);
+    void draw_car(QPainter& painter, double scale = 1.0);
     bool is_having_path() {return _has_path;}
     enum STATE{
         STOPPING = 0,
@@ -32,7 +32,7 @@ private:
     std::vector<int> _path;
     int _cur_node_index_in_path;
     bool _has_path = false;
-    double _vel = 10 / 73.0;
+    double _vel = 100 / 73.0;
     double _battery;
     double _targetX;
     double _targetY;
@@ -52,6 +52,8 @@ public:
     void load_map(MapAGV &m);
     void set_scale(double ratio);
     void set_offset(double x, double y);
+    void start_sim() {_flag_car_running = true;}
+    void pause_sim() {_flag_car_running = false;}
     int clickedOnWhich(QPoint pos);
     AGVCar car;
 
@@ -73,6 +75,7 @@ private:
     QPoint mapToPainter(QPoint pos);
     void setFocusNodeId(int id);
     void updateOnce();
+    bool _flag_car_running = false;
     std::vector<bool> isFocus;
     QTimer *timer;
     QMutex _map_mute;

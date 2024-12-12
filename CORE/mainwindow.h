@@ -36,6 +36,8 @@ private:
 
 private slots:
     void startSim();
+    void restartSim();
+    void pauseSim();
     void addNode();
     void enterRouteMode();
     void exitRouteMode();

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1284</width>
-    <height>647</height>
+    <width>1378</width>
+    <height>798</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,7 +17,7 @@
    <widget class="QPushButton" name="btn_addNode">
     <property name="geometry">
      <rect>
-      <x>880</x>
+      <x>920</x>
       <y>110</y>
       <width>89</width>
       <height>25</height>
@@ -30,7 +30,7 @@
    <widget class="QPushButton" name="btn_batchNodes">
     <property name="geometry">
      <rect>
-      <x>880</x>
+      <x>920</x>
       <y>210</y>
       <width>131</width>
       <height>25</height>
@@ -43,7 +43,7 @@
    <widget class="QPushButton" name="btn_addRouteControl">
     <property name="geometry">
      <rect>
-      <x>880</x>
+      <x>920</x>
       <y>160</y>
       <width>121</width>
       <height>25</height>
@@ -56,7 +56,7 @@
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>880</x>
+      <x>920</x>
       <y>270</y>
       <width>89</width>
       <height>25</height>
@@ -69,7 +69,7 @@
    <widget class="QPushButton" name="pushButton_2">
     <property name="geometry">
      <rect>
-      <x>1020</x>
+      <x>1060</x>
       <y>270</y>
       <width>89</width>
       <height>25</height>
@@ -82,7 +82,7 @@
    <widget class="QPushButton" name="btn_startSim">
     <property name="geometry">
      <rect>
-      <x>880</x>
+      <x>920</x>
       <y>340</y>
       <width>121</width>
       <height>25</height>
@@ -92,13 +92,26 @@
      <string>startSimulation</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="btn_simControl">
+    <property name="geometry">
+     <rect>
+      <x>1060</x>
+      <y>340</y>
+      <width>89</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>PAUSE</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1284</width>
+     <width>1378</width>
      <height>22</height>
     </rect>
    </property>

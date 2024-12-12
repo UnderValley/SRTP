@@ -5,6 +5,7 @@ namespace  {
     const double UPDATE_FREQUENCY = 60;
     const double UPDATE_PERIOD = 1.0 / UPDATE_FREQUENCY;
     const int NODEWIDTH = 50;
+    const int CARWIDTH = 75;
     int pressx = 0;
     int pressy = 0;
     struct MouseState {
@@ -27,9 +28,9 @@ void AGVCar::load_map(MapAGV &m)
     _map.CopyFrom(m);
 }
 
-void AGVCar::draw_car(QPainter &painter)
+void AGVCar::draw_car(QPainter &painter, double scale)
 {
-    painter.fillRect(_curX, _curY, NODEWIDTH, NODEWIDTH, QBrush(Qt::red));
+    painter.fillRect(_curX + (NODEWIDTH - CARWIDTH) / 2.0, _curY + (NODEWIDTH - CARWIDTH) / 2.0, CARWIDTH / scale , CARWIDTH / scale, QBrush(Qt::red));
 }
 
 void AGVCar::load_path(std::vector<int> &path)
@@ -47,18 +48,18 @@ void AGVCar::load_path(std::vector<int> &path)
 
 void AGVCar::headfor_next_node()
 {
-    qDebug() << _cur_node_index_in_path << _path.size() - 1 << _path[_cur_node_index_in_path + 1] << _state;
+    qDebug() << "index:" << _cur_node_index_in_path << "heading for:" << _path[_cur_node_index_in_path + 1] << "statee:" << _state;
     if (_state == STOPPING) {
 //        _has_path = false;
         return;
     } else if (_state == REACHED) {
-        if (_map.nodes(_path[_cur_node_index_in_path + 1]).x() - _curX < 1e-7) {
+        if (_map.nodes(_path[_cur_node_index_in_path + 1]).x() < _curX) {
             _state = STATE::LEFT;
-        } else if (-_map.nodes(_path[_cur_node_index_in_path + 1]).x() + _curX < 1e-7) {
+        } else if (_map.nodes(_path[_cur_node_index_in_path + 1]).x() > _curX) {
             _state = STATE::RIGHT;
-        } else if (_map.nodes(_path[_cur_node_index_in_path + 1]).y() - _curY < 1e-7) {
+        } else if (_map.nodes(_path[_cur_node_index_in_path + 1]).y() < _curY) {
             _state = STATE::UP;
-        } else if (-_map.nodes(_path[_cur_node_index_in_path + 1]).y() + _curY < 1e-7) {
+        } else if (_map.nodes(_path[_cur_node_index_in_path + 1]).y() > _curY) {
             _state = STATE::DOWN;
         }
     } else if (_state == LEFT) {
@@ -96,7 +97,7 @@ void AGVCar::headfor_next_node()
         }
     } else if (_state == DOWN) {
         _curY += _vel;
-        if (_curY <= _map.nodes(_path[_cur_node_index_in_path + 1]).y()) {
+        if (_curY >= _map.nodes(_path[_cur_node_index_in_path + 1]).y()) {
             _curY = _map.nodes(_path[_cur_node_index_in_path + 1]).y();
             _cur_node_index_in_path++;
             if (_cur_node_index_in_path == _path.size() - 1) {
@@ -162,11 +163,16 @@ void MyGraphicsView::draw_Map(QPainter &painter)
             painter.drawRect(_map.nodes(i).x(), _map.nodes(i).y(), NODEWIDTH, NODEWIDTH);
         }
         painter.setPen(QPen(Qt::gray,1));
+//        QFont font = painter.font();
+//        font.setPixelSize(20/_scale_ratio);
+//        painter.setFont(font);
         painter.drawText(_map.nodes(i).x() + NODEWIDTH / 3, _map.nodes(i).y() + NODEWIDTH / 2, QString("%1").arg(i));
     }
     if (car.is_having_path()) {
         car.draw_car(painter);
-        car.headfor_next_node();
+        if (_flag_car_running) {
+            car.headfor_next_node();
+        }
     }
 
 
