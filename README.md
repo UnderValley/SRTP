@@ -25,6 +25,10 @@ loadMap可以加载二进制文件
 
 ## 布置算法
 
+`savemap.bin` is the main map <<-------------------
+                                                ^
+`mainMapBackup.bin` is the backup of the main map |
+
 node可用属性{id, x(表示坐标), y}
 
 route可用属性{id, node1ID(表示连接的两个节点ID。默认单向路径，node1ID为进入点，node2ID为退出点), node2ID, attr(路径类型：单向、双向)}

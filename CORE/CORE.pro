@@ -26,6 +26,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+    chageattr.cpp \
         main.cpp \
         mainwindow.cpp \
         mygraphicsview.cpp \
@@ -34,6 +35,7 @@ SOURCES += \
 
 
 HEADERS += \
+    chageattr.h \
         mainwindow.h \
         mygraphicsview.h \
         mywidget.h \
@@ -41,6 +43,7 @@ HEADERS += \
 
 
 FORMS += \
+        chageattr.ui \
         mainwindow.ui \
         mywidget.ui
 

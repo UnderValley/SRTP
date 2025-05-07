@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1378</width>
-    <height>798</height>
+    <width>1870</width>
+    <height>1099</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,8 +17,8 @@
    <widget class="QPushButton" name="btn_addNode">
     <property name="geometry">
      <rect>
-      <x>920</x>
-      <y>110</y>
+      <x>1500</x>
+      <y>120</y>
       <width>89</width>
       <height>25</height>
      </rect>
@@ -26,12 +26,15 @@
     <property name="text">
      <string>addNode</string>
     </property>
+    <attribute name="buttonGroup">
+     <string notr="true">buttonGroup</string>
+    </attribute>
    </widget>
    <widget class="QPushButton" name="btn_batchNodes">
     <property name="geometry">
      <rect>
-      <x>920</x>
-      <y>210</y>
+      <x>1500</x>
+      <y>260</y>
       <width>131</width>
       <height>25</height>
      </rect>
@@ -39,12 +42,15 @@
     <property name="text">
      <string>batch place nodes</string>
     </property>
+    <attribute name="buttonGroup">
+     <string notr="true">buttonGroup</string>
+    </attribute>
    </widget>
    <widget class="QPushButton" name="btn_addRouteControl">
     <property name="geometry">
      <rect>
-      <x>920</x>
-      <y>160</y>
+      <x>1500</x>
+      <y>170</y>
       <width>121</width>
       <height>25</height>
      </rect>
@@ -52,12 +58,15 @@
     <property name="text">
      <string>addRouteMode</string>
     </property>
+    <attribute name="buttonGroup">
+     <string notr="true">buttonGroup</string>
+    </attribute>
    </widget>
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>920</x>
-      <y>270</y>
+      <x>1500</x>
+      <y>320</y>
       <width>89</width>
       <height>25</height>
      </rect>
@@ -65,12 +74,15 @@
     <property name="text">
      <string>saveMap</string>
     </property>
+    <attribute name="buttonGroup">
+     <string notr="true">buttonGroup</string>
+    </attribute>
    </widget>
    <widget class="QPushButton" name="pushButton_2">
     <property name="geometry">
      <rect>
-      <x>1060</x>
-      <y>270</y>
+      <x>1500</x>
+      <y>360</y>
       <width>89</width>
       <height>25</height>
      </rect>
@@ -78,12 +90,15 @@
     <property name="text">
      <string>loadMap</string>
     </property>
+    <attribute name="buttonGroup">
+     <string notr="true">buttonGroup</string>
+    </attribute>
    </widget>
    <widget class="QPushButton" name="btn_startSim">
     <property name="geometry">
      <rect>
-      <x>920</x>
-      <y>340</y>
+      <x>1500</x>
+      <y>410</y>
       <width>121</width>
       <height>25</height>
      </rect>
@@ -91,12 +106,15 @@
     <property name="text">
      <string>startSimulation</string>
     </property>
+    <attribute name="buttonGroup">
+     <string notr="true">buttonGroup</string>
+    </attribute>
    </widget>
    <widget class="QPushButton" name="btn_simControl">
     <property name="geometry">
      <rect>
-      <x>1060</x>
-      <y>340</y>
+      <x>1500</x>
+      <y>450</y>
       <width>89</width>
       <height>25</height>
      </rect>
@@ -104,6 +122,25 @@
     <property name="text">
      <string>PAUSE</string>
     </property>
+    <attribute name="buttonGroup">
+     <string notr="true">buttonGroup</string>
+    </attribute>
+   </widget>
+   <widget class="QPushButton" name="btn_changeAttr">
+    <property name="geometry">
+     <rect>
+      <x>1500</x>
+      <y>210</y>
+      <width>121</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>changeAttr</string>
+    </property>
+    <attribute name="buttonGroup">
+     <string notr="true">buttonGroup</string>
+    </attribute>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -111,7 +148,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1378</width>
+     <width>1870</width>
      <height>22</height>
     </rect>
    </property>
@@ -136,8 +173,8 @@
    <slot>addNode()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>927</x>
-     <y>173</y>
+     <x>1500</x>
+     <y>183</y>
     </hint>
     <hint type="destinationlabel">
      <x>860</x>
@@ -152,8 +189,8 @@
    <slot>batchAddingNodes()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>986</x>
-     <y>273</y>
+     <x>1500</x>
+     <y>323</y>
     </hint>
     <hint type="destinationlabel">
      <x>1083</x>
@@ -168,8 +205,8 @@
    <slot>saveMap()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>915</x>
-     <y>333</y>
+     <x>1500</x>
+     <y>383</y>
     </hint>
     <hint type="destinationlabel">
      <x>730</x>
@@ -184,8 +221,8 @@
    <slot>loadMap()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1056</x>
-     <y>333</y>
+     <x>1500</x>
+     <y>412</y>
     </hint>
     <hint type="destinationlabel">
      <x>1072</x>
@@ -200,12 +237,28 @@
    <slot>startSim()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>897</x>
-     <y>392</y>
+     <x>1500</x>
+     <y>471</y>
     </hint>
     <hint type="destinationlabel">
      <x>793</x>
      <y>381</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_changeAttr</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>changeAttribution()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1598</x>
+     <y>261</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1273</x>
+     <y>263</y>
     </hint>
    </hints>
   </connection>
@@ -216,5 +269,9 @@
   <slot>saveMap()</slot>
   <slot>loadMap()</slot>
   <slot>startSim()</slot>
+  <slot>changeAttribution()</slot>
  </slots>
+ <buttongroups>
+  <buttongroup name="buttonGroup"/>
+ </buttongroups>
 </ui>

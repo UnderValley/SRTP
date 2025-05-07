@@ -132,6 +132,7 @@ void MyGraphicsView::draw_Map(QPainter &painter)
     painter.setTransform(tr);
     painter.setTransform(tr);
     painter.setPen(QPen(Qt::white,2));
+    // draw routes
     for (int i = 0; i < _map.routes_size(); i++) {
         painter.setPen(QPen(Qt::white, 5));
         painter.drawLine(_map.nodes(_map.routes(i).node1_id()).x() + NODEWIDTH / 2,
@@ -153,8 +154,30 @@ void MyGraphicsView::draw_Map(QPainter &painter)
 //                              (_map.nodes(_map.routes(i).node1_id()).y() + NODEWIDTH / 2 + _map.nodes(_map.routes(i).node2_id()).y() + NODEWIDTH / 2) / 2 + 5);
 //         }
     }
+    // draw nodes
     for (int i = 0; i < _map.nodes_size(); i++) {
-        painter.fillRect(_map.nodes(i).x(), _map.nodes(i).y(), NODEWIDTH, NODEWIDTH, QBrush(Qt::white));
+        switch (_map.nodes(i).attr())
+        {
+        case 0:
+            painter.fillRect(_map.nodes(i).x(), _map.nodes(i).y(), NODEWIDTH, NODEWIDTH, QBrush(Qt::white));
+            break;
+        case 1:
+            painter.fillRect(_map.nodes(i).x(), _map.nodes(i).y(), NODEWIDTH, NODEWIDTH, QBrush(Qt::red));
+            break;
+        case 2:
+            painter.fillRect(_map.nodes(i).x(), _map.nodes(i).y(), NODEWIDTH, NODEWIDTH, QBrush(Qt::cyan));
+            break;
+        case 3:
+            painter.fillRect(_map.nodes(i).x(), _map.nodes(i).y(), NODEWIDTH, NODEWIDTH, QBrush(Qt::yellow));
+            break;
+        case 4:
+            painter.fillRect(_map.nodes(i).x(), _map.nodes(i).y(), NODEWIDTH, NODEWIDTH, QBrush(Qt::green));
+            break;
+        default:
+            painter.fillRect(_map.nodes(i).x(), _map.nodes(i).y(), NODEWIDTH, NODEWIDTH, QBrush(Qt::white));
+            break;
+        }
+
         if (isFocus[i]) {
             painter.setPen(QPen(QColor(153, 51, 255),2 / _scale_ratio));
             painter.drawRect(_map.nodes(i).x(), _map.nodes(i).y(), NODEWIDTH, NODEWIDTH);
@@ -168,6 +191,8 @@ void MyGraphicsView::draw_Map(QPainter &painter)
 //        painter.setFont(font);
         painter.drawText(_map.nodes(i).x() + NODEWIDTH / 3, _map.nodes(i).y() + NODEWIDTH / 2, QString("%1").arg(i));
     }
+
+    // draw cars
     if (car.is_having_path()) {
         car.draw_car(painter);
         if (_flag_car_running) {
@@ -300,6 +325,7 @@ void MyGraphicsView::setFocusNodeId(int id)
     if (id == -1) {return;}
     isFocus.assign(_map.nodes_size(), false);
     isFocus[id] = true;
+    qDebug() << "focused id: " << id << QString("(%1, %2)").arg(_map.nodes(id).x()).arg(_map.nodes(id).y()).toLatin1();
 //    for (int i = 0; i < _map.nodes_size(); i++) {
 //        isFocus[i] = false;
 //        if (id == _map.nodes(i).id()) {

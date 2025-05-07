@@ -1,10 +1,11 @@
 syntax = "proto3";
 
 enum Attribution_Node {
-    NORMAL = 0;
+    ROAD = 0;
     CHARGE = 1;
-    START = 2;
-    END = 3;
+    IMPORT = 2;
+    EXPORT = 3;
+    SHELF = 4;
 }
 
 enum Attribution_Route {
@@ -19,6 +20,7 @@ message Route {
     int32 entry = 4;
     int32 exit = 5;
     int32 id = 6;
+    bool occupied = 7;
 }
 
 message Node {
@@ -28,7 +30,8 @@ message Node {
     repeated int32 entry_routes = 4;
     repeated int32 exit_routes = 5;
     Attribution_Node attr = 6;
-    bool focused = 7;
+    bool focused = 7; // work when editing the map
+    bool occupied = 8;
 }
 
 message MapAGV{

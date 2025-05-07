@@ -20,8 +20,8 @@ private:
     Ui::mywidget *ui;
     MapAGV tmpMap;
 
-protected:
-    void closeEvent(QCloseEvent*event);
+// protected:
+//     void closeEvent(QCloseEvent*event);
 
 
 signals:
@@ -30,6 +30,7 @@ signals:
 
 private slots:
     void rec(int ew);
+    void closeWidget();
 
 };
 
