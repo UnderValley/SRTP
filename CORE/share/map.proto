@@ -32,9 +32,10 @@ message Node {
     Attribution_Node attr = 6;
     bool focused = 7; // work when editing the map
     bool occupied = 8;
+    int32 occupied_by = 9; // AGV ID that occupies this node, 0 means unoccupied
 }
 
-message MapAGV{
+message MapAGV {
     repeated Node nodes = 1;
     repeated Route routes = 2;
 }

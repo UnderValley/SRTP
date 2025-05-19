@@ -8,6 +8,7 @@
 #include <QFile>
 #include <QFileDialog>
 #include <fstream>
+#include <google/protobuf/util/json_util.h>
 
 namespace  {
     int curNodeID = 0;
@@ -41,11 +42,11 @@ MainWindow::MainWindow(QWidget *parent) :
     }
 qDebug() << this->width() << this->height();
     graphicsView = new MyGraphicsView(this);
-    graphicsView->setGeometry(80, 50, this->width()*0.6, this->height()*0.75);
+    graphicsView->setGeometry(80, 50, this->width()*0.7, this->height()*0.8);
     connect(&w, SIGNAL(sendMap(MapAGV)), this, SLOT(recBatchMap(MapAGV)));
     connect(ui->btn_addRouteControl, SIGNAL(clicked()), this, SLOT(enterRouteMode()));
     connect(&changeW, SIGNAL(sendChangedInfo(QVector<int>, Attribution_Node)), this, SLOT(recChangeAttrInfo(QVector<int>, Attribution_Node)));
-
+    loadMap();
 }
 
 MainWindow::~MainWindow()
@@ -56,18 +57,51 @@ MainWindow::~MainWindow()
 void MainWindow::startSim()
 {
     std::vector<int> pathList;
-    QString filename ="../MAP/path.txt";
-    QFile file(filename);
-    if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-        while (!file.atEnd()) {
-            QByteArray line = file.readLine();
-//            QString str(line);
-            pathList.push_back(line.toInt());
-        }
+    std::vector<int> pathList2;
+    std::vector<int> pathList3;
 
-        file.close();
-    }
+//     QString filename ="../MAP/path.txt";
+//     QFile file(filename);
+//     if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+//         while (!file.atEnd()) {
+//             QByteArray line = file.readLine();
+// //            QString str(line);
+//             pathList.push_back(line.toInt());
+//         }
+
+//         file.close();
+//     }
+
+//     QString filename2 ="../MAP/path2.txt";
+//     QFile file2(filename2);
+//     if (file2.open(QIODevice::ReadOnly | QIODevice::Text)) {
+//         while (!file2.atEnd()) {
+//             QByteArray line = file2.readLine();
+// //            QString str(line);
+//             pathList2.push_back(line.toInt());
+//         }
+
+//         file2.close();
+//     }
+
+//     QString filename3 ="../MAP/path3.txt";
+//     QFile file3(filename3);
+//     if (file3.open(QIODevice::ReadOnly | QIODevice::Text)) {
+//         while (!file3.atEnd()) {
+//             QByteArray line = file3.readLine();
+// //            QString str(line);
+//             pathList3.push_back(line.toInt());
+//         }
+
+//         file3.close();
+//     }
+    pathList = graphicsView->car.find_path_astar(19, 149);
     graphicsView->car.load_path(pathList);
+    pathList2 = graphicsView->car2.find_path_astar(257, 183);
+    graphicsView->car2.load_path(pathList2);
+    pathList3 = graphicsView->car3.find_path_astar(78, 258);
+    graphicsView->car3.load_path(pathList3);
+    qDebug() << "path loaded.";
     graphicsView->start_sim();
     ui->btn_simControl->setEnabled(true);
     connect(ui->btn_simControl, SIGNAL(clicked()), this, SLOT(pauseSim()));
@@ -131,7 +165,7 @@ void MainWindow::recChangeAttrInfo(QVector<int> ids, Attribution_Node category)
 void MainWindow::resizeEvent(QResizeEvent *event)
 {
     QMainWindow::resizeEvent(event);
-    graphicsView->setGeometry(80, 50, this->width()*0.6, this->height()*0.75);
+    graphicsView->setGeometry(80, 50, this->width()*0.7, this->height()*0.8);
     testFrame1->setGeometry(this->width()*ratioText1, testFrame1->y(), testFrame1->width(), testFrame1->height());
     testFrame2->setGeometry(this->width()*ratioText2, testFrame2->y(), testFrame2->width(), testFrame2->height());
     int i = 0;
@@ -217,25 +251,48 @@ void MainWindow::enterRouteMode()
 
 void MainWindow::saveMap()
 {
-    std::ofstream output("../MAP/savemap.bin", std::ios::binary);
-    if (!editableMap.SerializePartialToOstream(&output)) {
-        qDebug() << "save failed";
-        return;
+    if (false) {
+        std::string json_str;
+        google::protobuf::util::JsonPrintOptions options;
+        options.add_whitespace = true;       // 格式化输出（带缩进）
+        options.always_print_primitive_fields = true; // 保留默认值字段
+        auto status = google::protobuf::util::MessageToJsonString(editableMap, &json_str, options);
+        if (!status.ok()) {
+            std::cerr << "转换失败: " << status.ToString() << std::endl;
+        }
+        // 保存到文件
+        std::ofstream out_jsfile("../MAP/mapjs.json");
+        out_jsfile << json_str;
+        out_jsfile.close();
     }
-    output.close();
 }
 
 void MainWindow::loadMap()
 {
-//    QString filename ="../MAP/savemap.bin";// QFileDialog::getOpenFileName(this, "打开文件", "", "二进制文件 (*.bin);;所有文件 (*)", 0, QFileDialog::DontUseNativeDialog);
-////    QFile file("QT_XML.xml");
-////    qDebug() << filename;
-//    QFile file(filename);
+
+
+    std::ifstream in_file("../MAP/mapjs.json");
+    std::stringstream buffer;
+    buffer << in_file.rdbuf();
+    std::string json_str = buffer.str();
+
+    MapAGV tempMap;
+    google::protobuf::util::JsonParseOptions options;
+    auto status = JsonStringToMessage(json_str, &tempMap, options);
+
+    if (!status.ok()) {
+        throw std::runtime_error("解析失败: " + status.ToString());
+    }
+    editableMap.CopyFrom(tempMap);
+    graphicsView->load_map(editableMap);
+/*
     std::ifstream input("../MAP/savemap.bin", std::ios::binary);
     MapAGV tempMap;
     tempMap.ParseFromIstream(&input);
     editableMap.CopyFrom(tempMap);
     graphicsView->load_map(editableMap);
+
+    */
 //     if (!file.open(QFileDevice::ReadOnly)) {
 //         qDebug() << "文件打开失败！";
 //         return;
